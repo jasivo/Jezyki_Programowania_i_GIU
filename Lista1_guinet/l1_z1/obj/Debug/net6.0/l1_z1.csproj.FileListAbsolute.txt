@@ -1,0 +1,15 @@
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\bin\Debug\net6.0\l1_z1.exe
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\bin\Debug\net6.0\l1_z1.deps.json
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\bin\Debug\net6.0\l1_z1.runtimeconfig.json
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\bin\Debug\net6.0\l1_z1.dll
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\bin\Debug\net6.0\l1_z1.pdb
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.csproj.AssemblyReference.cache
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.AssemblyInfoInputs.cache
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.AssemblyInfo.cs
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.csproj.CoreCompileInputs.cache
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.dll
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\refint\l1_z1.dll
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.pdb
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\l1_z1.genruntimeconfig.cache
+C:\Users\Bombaj\Desktop\UWR\gui\Lista1_C#\l1_z1\obj\Debug\net6.0\ref\l1_z1.dll
