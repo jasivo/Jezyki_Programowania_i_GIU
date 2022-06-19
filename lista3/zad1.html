@@ -1,0 +1,14 @@
+<input>+<input>=<input>
+<script>
+
+let [a, b, c] = document.querySelectorAll('input');
+
+a.onkeyup = b.onkeyup = a.onpaste = b.onpaste = b.oncut = a.oncut =  function f(){
+    setTimeout(function(){c.value = +a.value + +b.value;},100); //funkcja po wpisaniu do inputu A lub inputu B znaku i puszczeniu klawiasza sumuje liczby i wyswietla wynik w inpucie C przed value jest +, zeby dodawalo inty a nie stringi
+}
+
+c.onkeyup = c.onpaste = c.oncut = function g(){ 
+    setTimeout(function(){a.value = b.value = c.value / 2;},100); // funkcja dziala po puszczeniu klawisza znajdujac sie w inpucie C i dzieli nam wpisana liczbe na 2 czesci i kazda wyswietla w inpucie A i inpucie B 
+}
+
+</script>

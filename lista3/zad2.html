@@ -1,0 +1,44 @@
+<input></br>
+<button>1</button> 
+<button>2</button>
+<button>3</button></br>
+<button>4</button>
+<button>5</button>
+<button>6</button></br>
+<button>7</button>
+<button>8</button>
+<button>9</button></br>
+<button>0</button>
+<button>+</button>
+<button>-</button></br>
+<button>*</button>
+<button>/</button>
+<button>=</button>
+
+
+<script>
+
+let a = document.querySelectorAll('button');
+let b = document.querySelector('input');
+
+let result = false;
+
+for(let i = 0; i<a.length-1; i++)
+{
+    a[i].onclick = function f(){
+        if(!result){
+            b.value += a[i].innerHTML;
+            console.log(a[i].innerHTML);
+        }
+        else
+            b.value = a[i].innerHTML;
+            result = false;
+    }
+}
+
+a[a.length-1].onclick = function g(){
+    b.value = eval(b.value);
+    result = true;
+}
+
+</script>

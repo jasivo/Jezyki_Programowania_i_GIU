@@ -1,0 +1,165 @@
+<html>
+
+    <head>
+        <title>
+            JPGUI zad3 Jurkiw
+        </title>
+        <style>
+            table{border: 1px solid black;}
+            td{border: 1px solid gray; width: 50px; height: 50px; color: white; text-align: center; font-size: 32px;}
+        </style>
+    </head>
+
+    <body>
+        Podaj rozmiar:</br><input type='number'></input></br><button id='easy'>Poziom Łatwy (20% bomb)</button></br><button id='medium'>Poziom Sredni (40% bomb)</button></br><button id='hard'>Poziom Trudny (60% bomb)</button></br>
+    </body>
+
+    <script>
+
+        var cells_to_end;
+
+        function rysuj(rozmiar,bomby)
+        {
+            var bombs = [];
+            while(bombs.length < bomby){
+                var r = Math. floor(Math. random() * 100) + 1;
+                if(bombs.indexOf(r) === -1)
+                    bombs.push(r);
+            }
+
+            var body = "<table>";
+            for(let i = 0; i < rozmiar; i++)
+            {
+                body += "<tr>";
+                for(let j = 0; j < rozmiar; j++)
+                {
+                    body += "<td></td>";
+                }
+                body += "</tr>";   
+            }
+            body += "</table>";
+            body += "Podaj rozmiar:</br><input id='inp' type='number'></input></br><button id='easy'>Poziom Łatwy (20% bomb)</button></br><button id='medium'>Poziom Sredni (40% bomb)</button></br><button id='hard'>Poziom Trudny (60% bomb)</button></br>"
+            document.body.innerHTML = body;
+
+            var cells = document.querySelectorAll('td');
+
+            for(let k = 0; k < cells.length; k++)
+            {
+                if(!(bombs.indexOf(k+1) === -1))
+                    cells[k].className = "bomba";
+                cells[k].addEventListener("click", sprawdz, false);
+            }
+
+            cells_to_end = (rozmiar*rozmiar) - bomby;
+            
+            var btn = document.querySelectorAll('button');
+
+            for(let g=0; g< btn.length; g++)
+            {
+                btn[g].addEventListener("click", graj, false)
+            }
+        }
+
+        function sprawdz()
+        {
+            let cells = document.querySelectorAll('td');
+            let cells2 = Array.from(cells);
+            let bomb_cells = document.querySelectorAll('td.bomba');
+            let rozmiar = Math.sqrt(cells.length);
+
+            var value = 0;
+
+            if(this.className == "bomba"){
+                this.style.backgroundColor = "red";
+                for(var a of bomb_cells)
+                    a.style.backgroundColor = "red";
+                // wylaczenie klikania po przegraniu gry
+                for(var b of cells)
+                    b.removeEventListener('click', sprawdz, false);
+                setTimeout(function(){ alert("Przegrałeś!!!");},200);
+            }
+            else{
+                if(this.style.backgroundColor != "gray")
+                    cells_to_end -= 1;
+                this.style.backgroundColor = "gray";
+                let index = cells2.indexOf(this);
+
+                if(!(index % rozmiar == 0))
+                    if(cells[index-1].className == "bomba")
+                    {
+                        value++;
+                    }
+                if(!(index % rozmiar == rozmiar-1))
+                    if(cells[index+1].className == "bomba")
+                    {
+                        value++;
+                    }
+                if(!(index >= rozmiar*(rozmiar-1)))
+                    if(cells[index+rozmiar].className == "bomba")
+                    {
+                        value++;
+                    }
+                if(!(index < rozmiar))    
+                    if(cells[index-rozmiar].className == "bomba")
+                    {
+                        value++;
+                    }
+                if((!(index % rozmiar == 0)) && (!(index < rozmiar)))
+                    if(cells[index-rozmiar-1].className == "bomba")
+                    {
+                        value++;
+                    }
+                if((!(index % rozmiar == rozmiar-1)) && (!(index < rozmiar)))
+                    if(cells[index-rozmiar+1].className == "bomba")
+                    {
+                        value++;
+                    }
+                if((!(index % rozmiar == 0)) && (!(index > rozmiar*(rozmiar-1))))
+                    if(cells[index+rozmiar-1].className == "bomba")
+                    {
+                        value++;
+                    }
+                if((!(index % rozmiar == rozmiar-1)) && (!(index >= rozmiar*(rozmiar-1))))
+                    if(cells[index+rozmiar+1].className == "bomba")
+                    {
+                        value++;
+                    }
+
+                console.log(cells_to_end);
+                if(value!=0)
+                    this.innerHTML = value;
+
+                if(cells_to_end == 0)
+                    setTimeout(function(){ alert("Wygrałeś!!!");},200);
+            }    
+        }
+
+        function graj()
+        {
+            var input = document.querySelector('input').value;
+            
+            var percent;
+
+            if(this.id == 'easy')
+                percent = 20;
+            else if(this.id == 'medium')
+                percent = 40;
+            else if(this.id == 'hard')
+                percent = 60;
+
+            var bomby = Math.floor((input*input) * (percent/100));
+            document.body.innerHTML = "";
+            rysuj(input,bomby);
+        }
+
+        var btn = document.querySelectorAll('button');
+
+        for(let g=0; g< btn.length; g++)
+        {
+            btn[g].addEventListener("click", graj, false)
+        }
+        
+        //rysuj(10,10);
+    </script>
+
+</html>

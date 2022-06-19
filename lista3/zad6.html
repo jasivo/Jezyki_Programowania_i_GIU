@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>JP GIU Jurkiw Paweł L3-Z6</title>
+</head>
+<body onload="f(document.body)">
+
+	<p>Napisz skrypt, który w kazdym słowie tresci dokumentu odwróci kolejnosc liter.</p>
+
+	<h1>Test dla nagłówka!</h1>
+
+</body>
+</html>
+<script>
+	
+	function f(elem)
+	{
+		if(elem.childNodes)
+		{
+			for(let x of elem.childNodes)
+				f(x);				
+			if(elem.childNodes.length==0)
+				elem.textContent=reverseWords(elem.textContent);
+		}
+	}
+
+	function reverseWords(text)
+	{
+		let res='';
+		let word='';
+		for(let x of text)
+		if(x.match(/\p{L}/u))
+			word=x+word;
+		else	
+		{	
+			res+=word;
+			word='';
+			res+=x;
+		}
+		return res+word;
+	}
+
+</script>

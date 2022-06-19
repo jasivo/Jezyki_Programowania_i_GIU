@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JP GIU Jurkiw Paweł L3-Z6</title>
+    <style>
+        table{border: 1px solid black; margin-left: auto; margin-right: auto;}
+        td{border: 1px dotted gray; }
+    </style>
+    <script>
+
+        function f(elem)
+        {
+            let text = elem.innerText;
+            text = text.split(/[~!@#$%^&*()_+-=;:\'`|<>,.?/"\t\r\n ]+/);
+            var mapa = new Map();
+    
+            for(x of text)
+            {
+                if(x != "")
+                {
+                    if(mapa.has(x))
+                        mapa.set(x, mapa.get(x)+1);
+                    else
+                        mapa.set(x,1);
+                }
+            }
+    
+            return mapa;
+        }
+    
+        function g(elem)
+        {
+            console.log(f(elem));
+            console.log(elem.childNodes);
+            let tabela = "<table><tr><td></td><td id='close'>X</td></tr>";
+            var cialo = document.querySelector('body');
+    
+            for(let para of f(elem))
+            {
+                [key, value] = para;
+                tabela += "<tr><td>"+key+"</td><td>"+ value+ "</td></tr>";
+            }
+            
+            tabela += "</table>";
+    
+            cialo.innerHTML += tabela;
+
+            let close = document.getElementById('close');
+
+            close.onclick = function c(){
+                let table = document.querySelector('table').remove();
+            } 
+    
+        }
+    
+    </script>
+</head>
+<body onload="g(document.body)">
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Tristique sollicitudin nibh sit amet commodo nulla. Blandit turpis cursus in hac habitasse platea dictumst. Sit amet cursus sit amet dictum sit amet. Quis enim lobortis scelerisque fermentum dui faucibus. Sapien et ligula ullamcorper malesuada proin libero. Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Vitae aliquet nec ullamcorper sit. Fames ac turpis egestas integer. Adipiscing at in tellus integer feugiat scelerisque varius morbi. Nulla porttitor massa id neque aliquam vestibulum morbi. Sem fringilla ut morbi tincidunt augue. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Felis imperdiet proin fermentum leo vel orci. Sit amet est placerat in egestas erat imperdiet sed euismod. Massa eget egestas purus viverra accumsan in.</p>
+
+    <p>早上好 Добрий ранок صباح الخير Bos días  صباح الخير Bos días Ụtụtụ ọma 早上好 Добрий ранок صباح الخير Bos días Ụtụtụ ọma</p>
+</body>
+</html>
